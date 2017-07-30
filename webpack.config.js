@@ -58,6 +58,8 @@ module.exports = {
                 localIdentName: '[[name]__[local]__[hash:base64:5]'
               }
             }, {
+              loader: 'postcss-loader'
+            }, {
               loader: 'sass-loader',
               options: {
                 includePaths: [`${__dirname}/src`]
