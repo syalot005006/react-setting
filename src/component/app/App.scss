@@ -1,10 +1,16 @@
-.title-area {
-  &:hover {
-    transition: transform 1s;
-    transform: scale(.5);
-  }
+#app {
+  .title-area {
+    &:hover {
+      transition: transform 1s;
+      transform: scale(.5);
+    }
 
-  .title {
-    background-color: #7f7f7f;
-  } 
+    .title {
+      background-color: #7f7f7f;
+    }
+  }
+  
+  .image {
+    width: 100%;
+  }
 }
