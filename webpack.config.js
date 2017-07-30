@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js', // webpack이 번들링을 시작할 경로
@@ -72,6 +73,9 @@ module.exports = {
   },
 
   plugins: [
+    new CopyWebpackPlugin([
+      { from: 'public' }
+    ]),
     new ExtractTextPlugin("./style/css/styles.css")
   ]
 }
