@@ -1,3 +1,5 @@
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
   entry: './src/index.js', // webpack이 번들링을 시작할 경로
 
@@ -45,14 +47,15 @@ module.exports = {
         }
       }, {
         test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader'
-          }, {
-            loader: 'css-loader'
-          }
-        ]
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
       }
     ]
-  }
+  },
+
+  plugins: [
+    new ExtractTextPlugin("./style/css/styles.css")
+  ]
 }
