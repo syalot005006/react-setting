@@ -4,11 +4,11 @@ import styles from './App.scss';
 class App extends React.Component {
   render() {
     return (
-      <div id={styles.app}>
+      <div id={styles['app']}>
         <div className={styles['title-area']}>
-          <h1 className={styles.title}>hello, world!</h1>
+          <h1 className={styles['title']}>hello, world!</h1>
         </div>
-        <img className={styles.image} src="/image/cat.jpg"/>
+        <img className={styles['image']} src="/image/cat.jpg"/>
       </div>
     );
   }
