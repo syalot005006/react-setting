@@ -4,7 +4,7 @@ import './App.scss';
 const App = () => {
   return (
     <div id="app">
-      Hello, World!
+      Hello, World!<br/>[ env: { ENV } ]
     </div>
   );
 };

@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const Webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -36,6 +37,9 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./public/index.html",
       filename: "./index.html"
+    }),
+    new Webpack.DefinePlugin({
+      'ENV': JSON.stringify('development')
     })
   ],
   optimization: {
