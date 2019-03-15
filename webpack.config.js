@@ -37,6 +37,12 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    modules: [
+      path.resolve(__dirname, 'src'),
+      'node_modules'
+    ]
+  },
   plugins: [
     new CleanWebPackPlugin(),
     new CopyWebPackPlugin([
