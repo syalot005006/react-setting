@@ -1,6 +1,8 @@
 const CleanWebPackPlugin = require('clean-webpack-plugin');
 const CopyWebPackPlugin = require('copy-webpack-plugin');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const OptimizeCssAssetsWebPackPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
 
 module.exports = {
@@ -20,6 +22,17 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
+      }, {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          }, {
+            loader: 'css-loader'
+          }, {
+            loader: 'sass-loader'
+          }
+        ]
       }
     ]
   },
@@ -42,6 +55,11 @@ module.exports = {
         removeStyleLinkTypeAttributes: true,
         useShortDoctype: true
       }
+    }),
+    new OptimizeCssAssetsWebPackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].[chunkhash].css",
+      chunkFilename: "[name].[chunkhash].css"
     })
   ],
   optimization: {
